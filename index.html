@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoreInventory – Inventory Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="auth" class="auth-screen">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="auth-logo"></div>
+        <h1>CoreInventory</h1>
+        <p class="auth-tagline">Modern inventory management</p>
+      </div>
+      <div id="auth-view-login" class="auth-view">
+        <form id="form-login" class="auth-form">
+          <h2>Sign in</h2>
+          <label>Email</label>
+          <input type="email" name="email" required placeholder="you@company.com" />
+          <label>Password</label>
+          <input type="password" name="password" required placeholder="••••••••" />
+          <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+          <div class="auth-links">
+            <a href="#" data-auth="signup">Create account</a>
+            <a href="#" data-auth="forgot">Forgot password?</a>
+          </div>
+        </form>
+      </div>
+      <div id="auth-view-signup" class="auth-view hidden">
+        <form id="form-signup" class="auth-form">
+          <h2>Create account</h2>
+          <label>Name</label>
+          <input type="text" name="name" required placeholder="Your name" />
+          <label>Email</label>
+          <input type="email" name="email" required placeholder="you@company.com" />
+          <label>Password</label>
+          <input type="password" name="password" required placeholder="••••••••" />
+          <label>Role</label>
+          <select name="role">
+            <option value="warehouse_staff">Warehouse Staff</option>
+            <option value="inventory_manager">Inventory Manager</option>
+          </select>
+          <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+          <div class="auth-links"><a href="#" data-auth="login">Already have an account? Sign in</a></div>
+        </form>
+      </div>
+      <div id="auth-view-forgot" class="auth-view hidden">
+        <form id="form-forgot" class="auth-form">
+          <h2>Reset password</h2>
+          <p class="auth-hint">Enter your email to receive an OTP.</p>
+          <label>Email</label>
+          <input type="email" name="email" required placeholder="you@company.com" />
+          <button type="submit" class="btn btn-primary btn-block">Send OTP</button>
+          <div class="auth-links"><a href="#" data-auth="login">Back to sign in</a></div>
+        </form>
+      </div>
+      <div id="auth-view-reset" class="auth-view hidden">
+        <form id="form-reset" class="auth-form">
+          <h2>Set new password</h2>
+          <label>Email</label>
+          <input type="email" name="email" required placeholder="you@company.com" />
+          <label>OTP code</label>
+          <input type="text" name="code" required placeholder="123456" maxlength="6" />
+          <label>New password</label>
+          <input type="password" name="newPassword" required placeholder="••••••••" />
+          <button type="submit" class="btn btn-primary btn-block">Reset password</button>
+          <div class="auth-links"><a href="#" data-auth="login">Back to sign in</a></div>
+        </form>
+      </div>
+      <div id="auth-message" class="auth-message hidden"></div>
+    </div>
+  </div>
+
+  <div id="app" class="app-layout hidden">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="sidebar-logo"></span>
+        <span>CoreInventory</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#/dashboard" class="nav-item" data-page="dashboard">
+          <span class="nav-icon">📊</span>
+          <span>Dashboard</span>
+        </a>
+        <a href="#/products" class="nav-item" data-page="products">
+          <span class="nav-icon">📦</span>
+          <span>Products</span>
+        </a>
+        <a href="#/operations" class="nav-item" data-page="operations">
+          <span class="nav-icon">🔄</span>
+          <span>Operations</span>
+        </a>
+        <a href="#/ledger" class="nav-item" data-page="ledger">
+          <span class="nav-icon">📋</span>
+          <span>Stock Ledger</span>
+        </a>
+        <a href="#/settings" class="nav-item" data-page="settings">
+          <span class="nav-icon">⚙️</span>
+          <span>Settings</span>
+        </a>
+        <a href="#/staff" class="nav-item" data-page="staff">
+          <span class="nav-icon">👥</span>
+          <span>Staff</span>
+        </a>
+        <a href="#/profile" class="nav-item" data-page="profile">
+          <span class="nav-icon">👤</span>
+          <span>Profile</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <button type="button" id="btn-logout" class="btn btn-ghost btn-block">Sign out</button>
+      </div>
+    </aside>
+    <main class="main-content">
+      <div id="page-content"></div>
+    </main>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/views/dashboard.js"></script>
+  <script src="js/views/products.js"></script>
+  <script src="js/views/operations.js"></script>
+  <script src="js/views/ledger.js"></script>
+  <script src="js/views/settings.js"></script>
+  <script src="js/views/staff.js"></script>
+  <script src="js/views/profile.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
